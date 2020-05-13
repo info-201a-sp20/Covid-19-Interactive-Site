@@ -22,8 +22,3 @@ For each identified data source,
 - Description of how was the data collected or generated (**1 point**)?
 - How many observations (rows) and features (columns) are in your data(**1 point**)?
 - What questions (from above) can be answered using the data in this dataset(**1 point**)?
-
-# Data source: (http://www.ufiddynamics.org/data)
-- The data is split into a table for date/location, and a table for socio-demographic data and other strata.
-influenza_points <- read.csv
-Date/Location:
