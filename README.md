@@ -15,11 +15,11 @@ Why are you interested in this field/domain?
 
 ## What data-driven questions do you hope to answer about this domain (share at least 3)?
 
-1. Is COVID-19 as deadly as the media makes it out to be in comparison to previous pandemics?
+1. Is COVID-19 as infectious as other pandemics in regards to spreading rates?
 
-2. How does the death rate/ recovery rate compare to past pandemics?
+2. How does the mortality rate of COVID-19 compare to similar pandemics?
 
-3. How much longer will this pandemic persist in comparison to past pandemics?
+3. How long has COVID-19 been considered a global threat in comparison to other pandemics?
 
 
 # Questions for Datasets:
@@ -43,7 +43,7 @@ How was the data collected or generated?
 2. The 2 authors of this dataset are Adam Kariv and Rufus Polluck who built CKAN, the world’s leading data portal platform that powers sites like data.gov and data.gov.uk. It provides information of every country and its number of confirmed cases, if they recovered, and number of deaths that occurred there due to the coronavirus. It also tells us the date of which the deaths were recorded starting 1/22
 3. 20384 rows
 4. 5 columns
-5. This dataset will be crucial in answering the 3 data-driven questions above since it provides all the data regarding deaths and recovers of patients that will be compared to other pandemics.
+5. This dataset will be crucial in answering the 3 data-driven questions above since it provides all the data regarding deaths and recoveries of patients from COVID-19 that will be compared to other pandemics.
 
 ## Fame’s dataset
 
@@ -51,7 +51,7 @@ How was the data collected or generated?
 2. The data was collected from https://www.who.int/csr/don/archive/disease/ebola/en/. The World Health Organization is responsible for international public health. The data was used to identify the cases and effects of the Ebola virus, dating from August 2014-March 2016.
 3. 2485 rows are in the data
 4. 10 columns are in the data
-5. The dataset can prove that COVID-19 is more deadly than the Ebola virus in terms of number of cases and number of suspected deaths.
+5. The dataset can prove that COVID-19 is more deadly than the Ebola virus in terms of the number of cases, length of pandemic, and the number of suspected deaths.
 
 ## Victoria’s dataset:
 
@@ -67,4 +67,4 @@ How was the data collected or generated?
 2. This link leads to two separate datasets regarding the influenza outbreak in 1918. This data was originally collected as part of project Tycho, which was meant to catalog all significant weekly disease reports since 1888.
 3. The Points Table contains 8035 observations, with 5 features.
 4. The Strata Table contains 3473 observations, with 17 features.
-5. This dataset can be used to compare the death rate and other potentially notable statistics such as age and employment to COVID
+5. This dataset can be used to compare the death rate, duration of the pandemic, and spreading rates of the 1918 flu to COVID
