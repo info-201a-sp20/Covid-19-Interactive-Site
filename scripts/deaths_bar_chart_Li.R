@@ -12,9 +12,6 @@ library(knitr)
 
 data <- read.csv("Data/Countries_with_covid19.csv")
 
-
-
-
 # Aggregates deaths by country
 deaths_by_country <- aggregate(x = data$Deaths,
                                by = list(data$Country),
