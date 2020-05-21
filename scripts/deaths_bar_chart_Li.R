@@ -24,7 +24,7 @@ deaths_by_country <- tail(deaths_by_country, 10)
 # ggplot(deaths_by_country, aes(x, Group.1)) + geom_boxplot() # For Boxplot
 
 # Makes bar plot of countires and respective deaths from Covid-19
-ggplot(data = deaths_by_country) +
+plot = ggplot(data = deaths_by_country) +
   geom_col(mapping = aes(x = Group.1, y = x,
                          fill = x)) +
   labs(
@@ -33,3 +33,5 @@ ggplot(data = deaths_by_country) +
     y = "Deaths"
   ) +
   coord_flip()
+
+plot
