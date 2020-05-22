@@ -53,7 +53,7 @@ worldCases(data, sf::st_read("data/countries.geojson"))
 ```
 
 ## Pie Chart
-The pie chart below shows the number of deaths due to COVID-19 by continent. It was chosen because it clearly shows the proportions of death in each sector of the circle, as each color represents a different continent. The quadrant is shown beside the pie chart was also added to make comparisons of proportions more effective. 
+The pie chart below shows the number of deaths due to COVID-19 by continent. It was chosen because it clearly shows the proportions of death in each sector of the circle, as each color represents a different continent. The quadrant shown besides the pie chart was also added to make comparisons of proportions more effective. 
 ```{r echo=FALSE}
 source("scripts/deaths_by_continent_fame.R")
 chart_death_by_cont(data, continents)
