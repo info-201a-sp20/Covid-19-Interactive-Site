@@ -23,7 +23,6 @@ library(jsonlite)
 library(styler)
 data <- read.csv("data/Countries_with_covid19.csv", stringsAsFactors = FALSE)
 continents <- read.csv("data/Countries-Continents.csv", stringsAsFactors = FALSE)
-source("scripts/summary_info.R")
 ```
 
 ## Introduction
@@ -32,13 +31,8 @@ Due to the rapid spread of COVID-19, multiple nations have suffered large infect
 ## Summary Information
 ```{r echo=FALSE}
 source("scripts/summary_info.R")
-var1 <- get_info(data)
 ```
-- country with most cases
-- country with least cases
-- 3 more points of interest
-- Notable points of interest in the dataset are that 'r ' contains the most confirmed
-- cases in the world, with 'r ' containing the least
+While many countries were hit hard by COVID-19, `r country_with_most_cases` was hit the hardest, with a total of `r most_cases` confirmed cases. On the other end of the spectrum, `r country_with_least_cases` suffered the least number of cases, with `r least_cases`. However, The country that suffered the most deaths suffered `r most_deaths` deaths.
 
 
 ## Table
