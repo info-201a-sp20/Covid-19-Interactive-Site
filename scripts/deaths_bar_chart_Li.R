@@ -1,5 +1,3 @@
-remove(list = ls())
-
 # Import all libraries
 library(stringr)
 library(dplyr)
@@ -13,8 +11,6 @@ library(knitr)
 # Takes covid-19 dataset as a parameter and returns bar chart of countries with
 # most deaths
 bar_chart_plot <- function(data) {
-  data <- read.csv(data, stringsAsFactors = FALSE)
-  
   # Aggregates deaths by country
   deaths_by_country <- aggregate(x = data$Deaths,
                                  by = list(data$Country),
@@ -45,4 +41,3 @@ bar_chart_plot <- function(data) {
     coord_flip()
   return(plot)
 }
-bar_chart_plot("Countries_with_covid19.csv")
