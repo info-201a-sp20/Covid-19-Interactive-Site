@@ -20,5 +20,3 @@ worldCases <- function(data, geodata) {
   addControl("Global Confirmed Cases", position = "bottomleft")
   
 }
-
-worldCases(read.csv("Data/Countries_with_covid19.csv", stringsAsFactors = FALSE), sf::st_read("Data/countries.geojson"))

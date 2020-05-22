@@ -34,11 +34,11 @@ Due to the rapid spread of COVID-19, multiple nations have suffered large infect
 source("scripts/summary_info.R")
 get_info(data)
 ```
-- country with most cases `r get_info(data)[0]`
-- country with least cases `r get_info(data)[1]`
-- 3 more points of interest `r get_info(data)[2]`
-- Notable points of interest in the dataset are that 'r ' contains the most confirmed `r get_info(data)[3]`
-- cases in the world, with 'r ' containing the least. `r get_info(data)[4]`
+- country with most cases
+- country with least cases
+- 3 more points of interest
+- Notable points of interest in the dataset are that 'r ' contains the most confirmed
+- cases in the world, with 'r ' containing the least
 
 
 ## Table
@@ -54,11 +54,11 @@ kable(table_maker(data))
 This map displays the number of cases per a country. We included this chart because it very clearly displays how the number of COVID19 cases is dispersed throughout the world. As seen below, this graphic reveals that the number of cases in the U.S. far out weighs the number of cases elsewhere.
 ```{r echo=FALSE, warning=FALSE}
 source("scripts/world_cases.R")
-worldCases(data, sf::st_read("data/countries.geojson"))
+worldCases(data, sf::st_read("data/countries.geojson", quiet = TRUE))
 ```
 
 ## Pie Chart
-
+The pie chart below shows the number of deaths due to COVID-19 by continent. It was chosen because it clearly shows the proportions of death in each sector of the circle, as each color represents a different continent. The quadrant shown besides the pie chart was also added to make comparisons of proportions more effective. 
 ```{r echo=FALSE}
 source("scripts/deaths_by_continent_fame.R")
 chart_death_by_cont(data, continents)
