@@ -12,9 +12,7 @@ library(knitr)
 
 # Takes covid-19 dataset as a parameter and returns bar chart of countries with
 # most deaths
-bar_chart_plot <- function(dataset) {
-  # Reads data
-  data <- read.csv(dataset)
+bar_chart_plot <- function(data) {
   
   # Aggregates deaths by country
   deaths_by_country <- aggregate(x = data$Deaths,
@@ -44,4 +42,5 @@ bar_chart_plot <- function(dataset) {
       y = "Deaths"
     ) +
     coord_flip()
+  return(plot)
 }
