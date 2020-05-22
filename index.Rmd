@@ -15,13 +15,24 @@ library(dplyr)
 library(ggplot2)
 library(leaflet)
 library(plotly)
-data <- read.csv("Data/Countries_with_covid19.csv")
+library(tidyverse)
+library(stringr)
+library(sf)
+data <- read.csv("Data/Countries_with_covid19.csv", stringsAsFactors = FALSE)
+source("scripts/summary_info.R")
 ```
 
 ## Introduction
 Due to the rapid spread of COVID-19, multiple nations have suffered large infection rates, many of which have been recorded, along with specific information on when the cases were first observed, in addition to status on the outcomes of each patient. This data is what we will be basing our research on.
 
-SUMMARY PARAGRAPH WITH INFO FROM SUMMARY FUNCTION
+## Summary Information
+```{r echo=FALSE}
+#get_info(data)
+```
+country with most cases
+country with least cases
+3 more points of interest
+Notable points of interest in the dataset are that 'r ' contains the most confirmed cases in the world, with 'r ' containing the least. 
 
 
 ## Table
@@ -30,16 +41,17 @@ A table was included because it was the most clear way to display specific numer
 source("scripts/table_Lai.R")
 kable(table_maker(data))
 ```
-
 ## Map
 
 ```{r echo=FALSE}
-kable((data))
+source("script/world_cases.R")
+kable(worldCases(data))
 ```
 ## Pie Chart
 
 ```{r echo=FALSE}
-kable((data))
+#source("script")
+#kable((data))
 ```
 ## Bar Chart
 The plot below highlights the top 10 countries with the most amount of deaths due to COVID-19. It is in the form of a colored bar chart. This plot displays the x-axis as the amount of deaths and the y-axis as the respective country. This visual effectively displays which states had more/less deaths than one another. Additionally, I added another level of encoding that is color, which further differentiates the difference in amount of deaths by country. I chose these visual types because length encoding allows people to easily identify differences in deaths and although color ranks as a lesser encoding, it adds another level of clarity.

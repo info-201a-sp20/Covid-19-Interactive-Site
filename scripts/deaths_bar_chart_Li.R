@@ -33,7 +33,7 @@ bar_chart_plot <- function(data) {
   # ggplot(deaths_by_country, aes(x, Group.1)) + geom_boxplot() # For Boxplot
   
   # Makes bar plot of countires and respective deaths from Covid-19
-  plot = ggplot(data = deaths_by_country) +
+  plot <- ggplot(data = deaths_by_country) +
     geom_col(mapping = aes(x = Countries, y = Deaths,
                            fill = Deaths)) +
     labs(
