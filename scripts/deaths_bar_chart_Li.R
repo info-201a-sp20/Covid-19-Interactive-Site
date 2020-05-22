@@ -1,5 +1,3 @@
-remove(list = ls())
-
 # Import all libraries
 library(stringr)
 library(dplyr)

@@ -47,7 +47,7 @@ kable(table_maker(data))
 
 ## Map
 
-```{r echo=FALSE, warning= FALSE, message=FALSE}
+```{r echo=FALSE, message=FALSE}
 source("scripts/world_cases.R")
 worldCases(data, sf::st_read("data/countries.geojson"))
 ```
@@ -56,13 +56,13 @@ worldCases(data, sf::st_read("data/countries.geojson"))
 
 ```{r echo=FALSE}
 source("scripts/deaths_by_continent_fame.R")
-kable(chart_death_by_cont(data, continents))
+chart_death_by_cont(data, continents)
 ```
 
 ## Bar Chart
 
 The plot below highlights the top 10 countries with the most amount of deaths due to COVID-19. It is in the form of a colored bar chart. This plot displays the x-axis as the amount of deaths and the y-axis as the respective country. This visual effectively displays which states had more/less deaths than one another. Additionally, I added another level of encoding that is color, which further differentiates the difference in amount of deaths by country. I chose these visual types because length encoding allows people to easily identify differences in deaths and although color ranks as a lesser encoding, it adds another level of clarity.
 ```{r echo=FALSE}
-#source("scripts/deaths_bar_chart_Li.R")
-#kable(bar_chart_plot(data))
+source("scripts/deaths_bar_chart_Li.R")
+bar_chart_plot(data)
 ```
