@@ -1,0 +1,49 @@
+---
+title: "index"
+author: "Isaac Lai"
+date: "5/21/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r include=FALSE}
+source("scripts/table_Lai.R")
+library(knitr)
+library(dplyr)
+library(ggplot2)
+library(leaflet)
+library(plotly)
+data <- read.csv("Data/Countries_with_covid19.csv")
+```
+
+## Introduction
+Due to the rapid spread of COVID-19, blah blah
+EXPLAIN DATASET
+
+SUMMARY PARAGRAPH WITH INFO FROM SUMMARY FUNCTION
+
+
+## Table
+A table was included because it was the most clear way to display specific numeric values, and in this case, was used to show the twenty countries with the most recorded deaths. This table reveals how the US leads the world in number of deaths by a large margin.
+```{r echo=FALSE}
+kable(table_maker(data))
+```
+
+## Map
+
+```{r echo=FALSE}
+kable((data))
+```
+## Pie Chart
+
+```{r echo=FALSE}
+kable((data))
+```
+## Bar Chart
+
+```{r echo=FALSE}
+kable((data))
+```
