@@ -1,6 +1,6 @@
 ---
-title: "index"
-author: "Isaac Lai"
+title: "Mid-point deliverable"
+author: "Isaac Lai, Fame Benjasiriwan, Jonathan Li, Victoria Jones"
 date: "5/21/2020"
 output: html_document
 ---
@@ -38,7 +38,7 @@ While many countries were hit hard by COVID-19, `r country_with_most_cases` was 
 ## Table
 
 A table was included because it was the most clear way to display specific numeric values, and in this case, was used to show the twenty countries with the most recorded deaths. This table reveals how the US leads the world in number of deaths by a large margin. By listing out the results by number of deaths, we can more easily see the countries that have been most affected by COVID-19, and additional information for those countries
-```{r echo=FALSE, warning=FALSE}
+```{r echo=FALSE, warning=FALSE, message=FALSE}
 source("scripts/table_Lai.R")
 kable(table_maker(data))
 ```
@@ -46,11 +46,8 @@ kable(table_maker(data))
 ## Map
 
 This map displays the number of cases per a country. We included this chart because it very clearly displays how the number of COVID19 cases is dispersed throughout the world. As seen below, this graphic reveals that the number of cases in the U.S. far out weighs the number of cases elsewhere.
-<<<<<<< HEAD
-```{r echo=FALSE, message=FALSE, warning=FALSE}
-=======
+
 ```{r echo=FALSE, warning=FALSE}
->>>>>>> ef8d0a4e473cda5a28ab6104fd6d2c7e1349960a
 source("scripts/world_cases.R")
 worldCases(data, sf::st_read("data/countries.geojson", quiet = TRUE))
 ```
