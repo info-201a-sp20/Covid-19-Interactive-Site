@@ -18,7 +18,10 @@ library(plotly)
 library(tidyverse)
 library(stringr)
 library(sf)
-data <- read.csv("Data/Countries_with_covid19.csv", stringsAsFactors = FALSE)
+library(scales)
+library(jsonlite)
+data <- read.csv("data/Countries_with_covid19.csv", stringsAsFactors = FALSE)
+continents <- read.csv("data/Countries-Continents.csv", stringsAsFactors = FALSE)
 source("scripts/summary_info.R")
 ```
 
@@ -37,25 +40,29 @@ Notable points of interest in the dataset are that 'r ' contains the most confir
 
 ## Table
 A table was included because it was the most clear way to display specific numeric values, and in this case, was used to show the twenty countries with the most recorded deaths. This table reveals how the US leads the world in number of deaths by a large margin. By listing out the results by number of deaths, we can more easily see the countries that have been most affected by COVID-19, and additional information for those countries
-```{r echo=FALSE}
+```{r echo=FALSE, warning=FALSE}
 source("scripts/table_Lai.R")
 kable(table_maker(data))
 ```
+
 ## Map
 
-```{r echo=FALSE}
-source("script/world_cases.R")
-kable(worldCases(data))
+```{r echo=FALSE, warning= FALSE, message=FALSE}
+source("scripts/world_cases.R")
+worldCases(data, sf::st_read("data/countries.geojson"))
 ```
+
 ## Pie Chart
 
 ```{r echo=FALSE}
-#source("script")
-#kable((data))
+source("scripts/deaths_by_continent_fame.R")
+kable(chart_death_by_cont(data, continents))
 ```
+
 ## Bar Chart
+
 The plot below highlights the top 10 countries with the most amount of deaths due to COVID-19. It is in the form of a colored bar chart. This plot displays the x-axis as the amount of deaths and the y-axis as the respective country. This visual effectively displays which states had more/less deaths than one another. Additionally, I added another level of encoding that is color, which further differentiates the difference in amount of deaths by country. I chose these visual types because length encoding allows people to easily identify differences in deaths and although color ranks as a lesser encoding, it adds another level of clarity.
 ```{r echo=FALSE}
-source("scripts/deaths_bar_chart_Li.R")
-kable(bar_chart_plot(data))
+#source("scripts/deaths_bar_chart_Li.R")
+#kable(bar_chart_plot(data))
 ```
