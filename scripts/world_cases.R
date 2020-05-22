@@ -1,4 +1,4 @@
-worldCases <- function(data, geodata) {
+world_cases <- function(data, geodata) {
   filtered_data <- data %>%
     group_by(Country) %>%
     summarise(Confirmed = sum(Confirmed), Deaths = sum(Deaths), Recovered = sum(Recovered))
@@ -6,18 +6,20 @@ worldCases <- function(data, geodata) {
   joined <- inner_join(filtered_data, geodata, by = c("Country" = "ADMIN"))
   pal <- colorNumeric(
     palette = "Blues",
-    domain = joined$Confirmed)
+    domain = joined$Confirmed
+  )
   leaflet(joined) %>%
-    addPolygons(data = joined$geometry,
-                stroke = FALSE,
-                smoothFactor = 0.2,
-                fillOpacity = 1,
-                color = pal(joined$Confirmed)) %>%
-  addLegend("bottomright", pal = pal, values = ~Confirmed,
-            title = "Confirmed Cases",
-            opacity = 1
-  ) %>%
-  addControl("Global Confirmed Cases", position = "bottomleft")
-  
+    addPolygons(
+      data = joined$geometry,
+      stroke = FALSE,
+      smoothFactor = 0.2,
+      fillOpacity = 1,
+      color = pal(joined$Confirmed)
+    ) %>%
+    addLegend("bottomright",
+      pal = pal, values = ~Confirmed,
+      title = "Confirmed Cases",
+      opacity = 1
+    ) %>%
+    addControl("Global Confirmed Cases", position = "bottomleft")
 }
-
