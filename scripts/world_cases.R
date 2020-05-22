@@ -21,4 +21,5 @@ worldCases <- function(data, geodata) {
   
 }
 
-worldCases(read.csv("Data/Countries_with_covid19.csv", stringsAsFactors = FALSE), sf::st_read("Data/countries.geojson"))
+worldCases(read.csv("Data/Countries_with_covid19.csv", stringsAsFactors = FALSE), 
+           sf::st_read("Data/countries.geojson", quiet = TRUE))

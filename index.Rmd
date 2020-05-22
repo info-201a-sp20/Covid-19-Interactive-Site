@@ -47,9 +47,9 @@ kable(table_maker(data))
 
 ## Map
 This map displays the number of cases per a country. We included this chart because it very clearly displays how the number of COVID19 cases is dispersed throughout the world. As seen below, this graphic reveals that the number of cases in the U.S. far out weighs the number of cases elsewhere.
-```{r echo=FALSE, message=FALSE}
+```{r echo=FALSE, message=FALSE, warning=FALSE}
 source("scripts/world_cases.R")
-worldCases(data, sf::st_read("data/countries.geojson"))
+worldCases(data, sf::st_read("data/countries.geojson", quiet = TRUE))
 ```
 
 ## Pie Chart
