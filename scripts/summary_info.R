@@ -38,5 +38,6 @@ get_info <- function(data) {
     least_cases,
     most_deaths
   )
-  return(info)
 }
+
+get_info(data)
