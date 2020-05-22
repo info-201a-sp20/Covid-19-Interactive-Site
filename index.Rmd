@@ -20,6 +20,7 @@ library(stringr)
 library(sf)
 library(scales)
 library(jsonlite)
+library(styler)
 data <- read.csv("data/Countries_with_covid19.csv", stringsAsFactors = FALSE)
 continents <- read.csv("data/Countries-Continents.csv", stringsAsFactors = FALSE)
 source("scripts/summary_info.R")
@@ -30,15 +31,18 @@ Due to the rapid spread of COVID-19, multiple nations have suffered large infect
 
 ## Summary Information
 ```{r echo=FALSE}
-#get_info(data)
+source("scripts/summary_info.R")
+get_info(data)
 ```
-country with most cases
-country with least cases
-3 more points of interest
-Notable points of interest in the dataset are that 'r ' contains the most confirmed cases in the world, with 'r ' containing the least. 
+- country with most cases `r get_info(data)[0]`
+- country with least cases `r get_info(data)[1]`
+- 3 more points of interest `r get_info(data)[2]`
+- Notable points of interest in the dataset are that 'r ' contains the most confirmed `r get_info(data)[3]`
+- cases in the world, with 'r ' containing the least. `r get_info(data)[4]`
 
 
 ## Table
+
 A table was included because it was the most clear way to display specific numeric values, and in this case, was used to show the twenty countries with the most recorded deaths. This table reveals how the US leads the world in number of deaths by a large margin. By listing out the results by number of deaths, we can more easily see the countries that have been most affected by COVID-19, and additional information for those countries
 ```{r echo=FALSE, warning=FALSE}
 source("scripts/table_Lai.R")
@@ -46,8 +50,9 @@ kable(table_maker(data))
 ```
 
 ## Map
+
 This map displays the number of cases per a country. We included this chart because it very clearly displays how the number of COVID19 cases is dispersed throughout the world. As seen below, this graphic reveals that the number of cases in the U.S. far out weighs the number of cases elsewhere.
-```{r echo=FALSE, message=FALSE}
+```{r echo=FALSE, warning=FALSE}
 source("scripts/world_cases.R")
 worldCases(data, sf::st_read("data/countries.geojson"))
 ```
