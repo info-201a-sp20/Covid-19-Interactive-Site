@@ -1,5 +1,6 @@
 library(dplyr)
 library(ggplot2)
+library(scales)
 # parameters: 
 #   - covid: "Data/Countries_with_covid19.csv"
 #   - continents: "Data/Countries-Continents.csv"
@@ -7,7 +8,7 @@ library(ggplot2)
 chart_death_by_cont <- function(covid, continents) {
   # clean up country names before processing
   # taiwan <- china
-  covid[covid$Country == "Taiwan*", "Country"] = "China"
+  covid[covid$Country == "Taiwan*", "Country"] <- "China"
   
   covid_death_by_country <- covid %>% 
     group_by(Country) %>%
@@ -37,14 +38,19 @@ chart_death_by_cont <- function(covid, continents) {
   
   death_by_cont <- covid_continents %>%
     group_by(Continent) %>%
-    summarise("Total Death" = sum(deaths))
+    summarise("Total Death" = sum(deaths)) %>%
+    mutate(prop= `Total Death`/sum(`Total Death`) * 100) %>%
+    mutate(lab.ypos = cumsum(prop) - 0.5*prop)
   
   
-  death_by_cont_chart <- ggplot(data = death_by_cont) +
-    geom_col(mapping = aes(x = Continent, y = `Total Death`))
-  
-  return(death_by_cont_chart)
+    plot <- ggplot(death_by_cont, aes(x="", y=prop, fill=Continent))+
+      geom_bar(stat = "identity", color = "white") +
+      coord_polar(theta = "y", start = 0) + 
+      ggtitle("Death By Continent") + xlab("") + ylab("")   
+    
+    return(plot)
 }
+
 
 
 
