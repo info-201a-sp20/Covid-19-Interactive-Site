@@ -56,6 +56,7 @@ How was the data collected or generated?
 ## Victoria’s dataset:
 
 1. https://www.kaggle.com/imdevskp/sars-2003-outbreak-analysis
+  a. https://github.com/datasets/geo-countries (Contains geometry for world borders)
 2. This link provides data for the SARs outbreak in 2003. Originally, the SARs data was accumulated from multiple daily datasets from the WHO (World Health Organization) website (https://www.who.int/csr/sars/country/en/), now combined into one file. This SARs file contains the number of confirmed SARs cases, related deaths, and recovered patients from March to July of 2003 for multiple countries.
 3. There are 2,538 rows of data.
 4. There are five columns: date, country, cumulative number of cases, number of deaths, and number of recovered patients.
