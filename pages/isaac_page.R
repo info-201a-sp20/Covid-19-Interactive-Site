@@ -7,7 +7,7 @@ library("dplyr")
 # Other Stuff
 
 
-data <- read.csv(file = "data/Countries_with_covid19.csv", stringsAsFactors = FALSE)
+data <- read.csv(file = "../data/Countries_with_covid19.csv", stringsAsFactors = FALSE)
 data_by_country <- data %>%
   group_by(Country) %>%
   summarize(
@@ -30,21 +30,33 @@ page_one_sidepanel <- sidebarPanel(
     selected = 1
   )
 )
+# page_two_sidepanel <- sidebarPanel(
+#   h2("Begining Date Selector"),
+#   sliderInput("integer", "Integer:",
+#               min = 0, max = 1000,
+#               value = 500)
+# )
+# page_three_sidepanel <- sidebarPanel(
+#   h2("Ending Date Selector"),
+#   sliderInput("integer", "Integer:",
+#               min = 0, max = 1000,
+#               value = 500)
+# )
 page_one_mainpanel <- mainPanel(
   h2("Country Statistics"), 
   p(
-    "this is a paragraph with",
-    strong("bold"),
-    " text."
-  ), 
+    "Stats will be displayed below"
+  ),
   textOutput(
-    outputId = "message"
+    outputId = "intro"
   )
 )
 isaac_page <- tabPanel (
   "Country Statistics",
   sidebarLayout(
     page_one_sidepanel,
+    # page_two_sidepanel,
+    # page_three_sidepanel,
     page_one_mainpanel
   )
 )
@@ -58,8 +70,16 @@ ui2 <- navbarPage(
 
 
 server2 <- function(input, output){
-  output$message <- renderText({
-    msg <- paste0("Stats for", input$countryName)
+  output$intro <- renderText({
+    msg <- paste0("Stats for ",
+                  input$countryName,
+                  ": ",
+                  "\n",
+                  "Number of confirmed Cases: ",
+                  
+                  "Number of recorded Deaths: "
+                  
+                  )
     return(msg)
   })
 }
