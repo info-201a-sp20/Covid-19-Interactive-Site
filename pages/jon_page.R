@@ -24,14 +24,13 @@ ui <- fluidPage(
               "Our group decided to focus our project on illustrating
                the deadliness of", strong("COVID-19"), " through comparisons
                with other recent pandemics including", em("Ebola"), "and",
-              em("SARS"), "as well as ongoing viruses like", em("Influenza"),
-              ". We hope that these comparisons in the forms of interactive
-               charts and maps will shine light on the", strong("deadliness"),
-              "of COVID-19 and incentivize people to follow the guidelines
-               listed by our local governments. Our research will provide a
-               surface level insight of relevant information regarding the
-               differnces in these diseases' spread rates, death rates, and
-               recovery rates. "
+               em("SARS"), "in hopes that these comparisons in the forms of
+               interactive charts and maps will shine light on the",
+               strong("deadliness"), "of COVID-19 and incentivize people to
+               follow the guidelines listed by our local governments. Our
+               research will provide a surface level insight of relevant
+               information regarding the differnces in these diseases'
+               spread rates, death rates, and recovery rates. "
             ),
             tags$p(
               "Our project goes to show how any individual, regardless of
@@ -40,7 +39,8 @@ ui <- fluidPage(
               "and conclusions about the situation. There is no excuse
                     to not be informed about something this dangerous and
                     relevant to our lives. "
-            )
+            ),
+            img("", src = "https://media.giphy.com/media/dVuyBgq2z5gVBkFtDc/giphy.gif")
           ),
           tabPanel(
             "Context",
@@ -58,7 +58,8 @@ ui <- fluidPage(
                     usual outside activity. Hospital workers are working
                     tirelessly day and night while risking their lives to
                     treat those who have fallen victim to the disease yet
-                    so many are still not taking regulations seriously. ")
+                    so many are still not taking regulations seriously. "),
+            img("", src = "https://2yc1i12zey253fx89m2v35s3-wpengine.netdna-ssl.com/wp-content/uploads/2020/04/coronavirus-2-1024x681.png")
           ),
           tabPanel(
             "Contributions",
