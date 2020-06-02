@@ -26,7 +26,7 @@ chart_death_by_cont <- function(covid, continents) {
     "Congo, Democratic Republic of"
 
   covid_death_by_country[covid_death_by_country$Country ==
-                           "1	Cote d'Ivoire", "Country"] <-
+                           "Cote d'Ivoire", "Country"] <-
     "Ivory Coast"
 
   covid_death_by_country[covid_death_by_country$Country ==
@@ -34,10 +34,16 @@ chart_death_by_cont <- function(covid, continents) {
     "Burma (Myanmar)"
 
   covid_death_by_country[covid_death_by_country$Country ==
-                           "Timor-Leste", "Country"] <-
-    "East Timor"
+                           "Bahamas", "Country"] <-
+    "The Bahamas"
 
-
+  covid_death_by_country[covid_death_by_country$Country ==
+                           "Guinea-Bissau", "Country"] <-
+    "Guinea Bissau"
+  
+  
+  
+  
   covid_continents <-
     left_join(continents, covid_death_by_country, by = "Country")
   covid_continents$deaths[is.na(covid_continents$deaths)] <- 0
