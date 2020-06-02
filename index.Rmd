@@ -1,6 +1,6 @@
 ---
-title: "index"
-author: "Isaac Lai"
+title: "Mid-point deliverable"
+author: "Isaac Lai, Fame Benjasiriwan, Jonathan Li, Victoria Jones"
 date: "5/21/2020"
 output: html_document
 ---
@@ -10,40 +10,59 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ```{r include=FALSE}
-source("scripts/table_Lai.R")
 library(knitr)
 library(dplyr)
 library(ggplot2)
 library(leaflet)
 library(plotly)
-data <- read.csv("Data/Countries_with_covid19.csv")
+library(tidyverse)
+library(stringr)
+library(sf)
+library(scales)
+library(jsonlite)
+library(styler)
+data <- read.csv("data/Countries_with_covid19.csv", stringsAsFactors = FALSE)
+continents <- read.csv("data/Countries-Continents.csv", stringsAsFactors = FALSE)
 ```
 
 ## Introduction
-Due to the rapid spread of COVID-19, blah blah
-EXPLAIN DATASET
+Due to the rapid spread of COVID-19, multiple nations have suffered large infection rates, many of which have been recorded, along with specific information on when the cases were first observed, in addition to status on the outcomes of each patient. This data is what we will be basing our research on.
 
-SUMMARY PARAGRAPH WITH INFO FROM SUMMARY FUNCTION
+## Summary Information
+```{r echo=FALSE}
+source("scripts/summary_info.R")
+```
+While many countries were hit hard by COVID-19, `r country_with_most_cases` was hit the hardest, with a total of `r most_cases` confirmed cases. On the other end of the spectrum, `r country_with_least_cases` suffered the least number of cases, with `r least_cases`. However, The country that suffered the most deaths suffered `r most_deaths` deaths.
 
 
 ## Table
-A table was included because it was the most clear way to display specific numeric values, and in this case, was used to show the twenty countries with the most recorded deaths. This table reveals how the US leads the world in number of deaths by a large margin.
-```{r echo=FALSE}
+
+A table was included because it was the most clear way to display specific numeric values, and in this case, was used to show the twenty countries with the most recorded deaths. This table reveals how the US leads the world in number of deaths by a large margin. By listing out the results by number of deaths, we can more easily see the countries that have been most affected by COVID-19, and additional information for those countries
+```{r echo=FALSE, warning=FALSE, message=FALSE}
+source("scripts/table_Lai.R")
 kable(table_maker(data))
 ```
 
 ## Map
 
-```{r echo=FALSE}
-kable((data))
-```
-## Pie Chart
+This map displays the number of cases per a country. We included this chart because it very clearly displays how the number of COVID19 cases is dispersed throughout the world. As seen below, this graphic reveals that the number of cases in the U.S. far out weighs the number of cases elsewhere.
 
-```{r echo=FALSE}
-kable((data))
+```{r echo=FALSE, warning=FALSE}
+source("scripts/world_cases.R")
+worldCases(data, sf::st_read("data/countries.geojson", quiet = TRUE))
 ```
+
+## Pie Chart
+The pie chart below shows the number of deaths due to COVID-19 by continent. It was chosen because it clearly shows the proportions of death in each sector of the circle, as each color represents a different continent. The quadrant shown besides the pie chart was also added to make comparisons of proportions more effective. 
+```{r echo=FALSE}
+source("scripts/deaths_by_continent_fame.R")
+chart_death_by_cont(data, continents)
+```
+
 ## Bar Chart
 
+The plot below highlights the top 10 countries with the most amount of deaths due to COVID-19. It is in the form of a colored bar chart. This plot displays the x-axis as the amount of deaths and the y-axis as the respective country. This visual effectively displays which states had more/less deaths than one another. Additionally, I added another level of encoding that is color, which further differentiates the difference in amount of deaths by country. I chose these visual types because length encoding allows people to easily identify differences in deaths and although color ranks as a lesser encoding, it adds another level of clarity.
 ```{r echo=FALSE}
-kable((data))
+source("scripts/deaths_bar_chart_Li.R")
+bar_chart_plot(data)
 ```

@@ -4,7 +4,7 @@ library(plotly)
 library(lintr)
 library(styler)
 
-data <- read.csv(file = "data/Countries_with_covid19.csv")
+data <- read.csv(file = "data/Countries_with_covid19.csv", stringsAsFactors = FALSE)
 
 table_maker <- function(data){
   data_table <-
