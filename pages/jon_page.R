@@ -67,6 +67,21 @@ ui <- fluidPage(
             tags$p("Jonathan Li"),
             tags$p("Victoria Jones"),
             tags$i("Informatics 201 A Spring Quarter 2020")
+          ),
+          tabPanel(
+            "Sources",
+            tags$p(a("COVID-19 Dataset",
+              href = "https://github.com/datasets/covid-19/blob/master/data/worldwide-aggregated.csv"
+            )),
+            tags$p(a("Influenza Dataset",
+              href = "http://www.ufiddynamics.org/data"
+            )),
+            tags$p(a("Ebola Dataset",
+              href = "https://www.kaggle.com/imdevskp/ebola-outbreak-20142016-complete-dataset"
+            )),
+            tags$p(a("SARS Dataset",
+              href = "https://www.kaggle.com/imdevskp/sars-2003-outbreak-analysis"
+            )),
           )
         )
       )
