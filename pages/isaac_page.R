@@ -28,13 +28,24 @@ country_data <- function(a){
 
 page_one_sidepanel <- sidebarPanel(
   h2("Country Selector"),
-  radioButtons(
-    inputId = "countryName",
-    label = h3("Choose a Country"),
-    choices = country_names,
-    selected = "Afghanistan"
+  fluidPage(
+    selectInput(
+      inputId = "countryName",
+      label = h3("Select Country"),
+      choices = country_names,
+      selected = "Afghanistan"
+    )
   )
 )
+# page_one_sidepanel <- sidebarPanel(
+#   h2("Country Selector"),
+#   radioButtons(
+#     inputId = "countryName",
+#     label = h3("Choose a Country"),
+#     choices = country_names,
+#     selected = "Afghanistan"
+#   )
+# )
 # calculations
 country_deaths <- function(a){
   data_by_country %>% filter(Country == a) %>% pull(`Total Deaths`)
@@ -45,15 +56,6 @@ country_cases <- function(a){
 country_recoveries <- function(a){
   data_by_country %>% filter(Country == a) %>% pull(`Recovered Cases`)
 }
-# page_one_mainpanel <- mainPanel(
-#   h2("Country Statistics"), 
-#   p(
-#     "Stats will be displayed below"
-#   ),
-#   verbatimTextOutput(
-#     outputId = "intro"
-#   )
-# )
 page_one_mainpanel <- mainPanel(
   h2("Country Statistics"), 
   fluidPage(
@@ -62,21 +64,9 @@ page_one_mainpanel <- mainPanel(
     )
   )
 )
-# page_two <- tabPanel(
-#   "Page two",
-#   fluidPage(
-#     h2("Demo using plotly"),
-#     textInput(
-#       inputId = "title",
-#       label = h3("Enter the title you want for the graph"),
-#     ),
-#     plotlyOutput(
-#       outputId = "demoplotly"
-#     )
-#   )
-# )
+
 isaac_page <- tabPanel (
-  "Country Statistics",
+  "Country Statistics Explorer",
   sidebarLayout(
     page_one_sidepanel,
     page_one_mainpanel
@@ -94,30 +84,14 @@ ui2 <- navbarPage(
 server2 <- function(input, output){
   output$chart <- renderPlot({
     data_new <- country_data(input$countryName) %>%
-      pivot_longer(names_to = "Types",
-                   values_to = "Number",
+      pivot_longer(names_to = "Types_of_Recorded_Cases",
+                   values_to = "Number_of_Cases",
                    c("Confirmed Cases",
                      "Recovered Cases",
                      "Total Deaths"))
-    plot <- ggplot(data_new, aes(Types, Number)) + geom_col(stat = "identity")
+    plot <- ggplot(data_new, aes(Types_of_Recorded_Cases, Number_of_Cases)) + geom_col(stat = "identity")
     return(plot)
   })
-  # output$intro <- renderText({
-  #   msg <- paste0("Stats for ",
-  #                 input$countryName,
-  #                 ": ",
-  #                 "\n",
-  #                 "Number of confirmed Cases: ",
-  #                 country_cases(input$countryName),
-  #                 "\n",
-  #                 "Number of recorded Recoveries: ",
-  #                 country_recoveries(input$countryName),
-  #                 "\n",
-  #                 "Number of recorded Deaths: ",
-  #                 country_deaths(input$countryName)
-  #                 )
-  #   return(msg)
-  # })
 }
 
 
