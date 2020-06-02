@@ -1,57 +1,60 @@
 library(dplyr)
 library(ggplot2)
 library(scales)
-# parameters: 
-#   - covid: "Data/Countries_with_covid19.csv"
-#   - continents: "Data/Countries-Continents.csv"
+# parameters:
 
 chart_death_by_cont <- function(covid, continents) {
   # clean up country names before processing
-  # taiwan <- china
   covid[covid$Country == "Taiwan*", "Country"] <- "China"
-  
-  covid_death_by_country <- covid %>% 
+
+  covid_death_by_country <- covid %>%
     group_by(Country) %>%
     summarise(deaths = max(Deaths))
-  
+
   # post processing
   # US <- united states
   # congo B <- congo
   # congo k <- 	Congo, Democratic Republic of
   # cote divore <- Ivory Coast
-  # burma <- burma (myanmar)
   # timor leste
-  # covid_death_by_country[covid_death_by_country$Country == <Change From>,"Country"] = <Change to>
-  covid_death_by_country[covid_death_by_country$Country == "Congo (Brazzaville)","Country"] = "Congo"
-  
-  covid_death_by_country[covid_death_by_country$Country == "Congo (Kinshasa)","Country"] = "Congo, Democratic Republic of"
-  
-  covid_death_by_country[covid_death_by_country$Country == "1	Cote d'Ivoire","Country"] = "Ivory Coast"
-  
-  covid_death_by_country[covid_death_by_country$Country == "Burma","Country"] = "Burma (Myanmar)"
-  
-  covid_death_by_country[covid_death_by_country$Country == "Timor-Leste","Country"] = "East Timor"
-  
-  
-  covid_continents <- left_join(continents, covid_death_by_country, by="Country")
+  covid_death_by_country[covid_death_by_country$Country ==
+                           "Congo (Brazzaville)", "Country"] <-
+    "Congo"
+
+  covid_death_by_country[covid_death_by_country$Country ==
+                           "Congo (Kinshasa)", "Country"] <-
+    "Congo, Democratic Republic of"
+
+  covid_death_by_country[covid_death_by_country$Country ==
+                           "1	Cote d'Ivoire", "Country"] <-
+    "Ivory Coast"
+
+  covid_death_by_country[covid_death_by_country$Country ==
+                           "Burma", "Country"] <-
+    "Burma (Myanmar)"
+
+  covid_death_by_country[covid_death_by_country$Country ==
+                           "Timor-Leste", "Country"] <-
+    "East Timor"
+
+
+  covid_continents <-
+    left_join(continents, covid_death_by_country, by = "Country")
   covid_continents$deaths[is.na(covid_continents$deaths)] <- 0
-  
+
   death_by_cont <- covid_continents %>%
     group_by(Continent) %>%
     summarise("Total Death" = sum(deaths)) %>%
-    mutate(prop= `Total Death`/sum(`Total Death`) * 100) %>%
-    mutate(lab.ypos = cumsum(prop) - 0.5*prop)
-  
-  
-    plot <- ggplot(death_by_cont, aes(x="", y=prop, fill=Continent))+
-      geom_bar(stat = "identity", color = "white") +
-      coord_polar(theta = "y", start = 0) + 
-      ggtitle("Death By Continent") + xlab("") + ylab("")   
-    
-    return(plot)
+    mutate(prop = `Total Death` / sum(`Total Death`) * 100) %>%
+    mutate(lab.ypos = cumsum(prop) - 0.5 * prop)
+
+
+  plot <- ggplot(death_by_cont, aes(x = "", y = prop, fill = Continent)) +
+    geom_bar(stat = "identity", color = "white") +
+    coord_polar(theta = "y", start = 0) +
+    ggtitle("Death By Continent") +
+    xlab("") +
+    ylab("")
+
+  return(plot)
 }
-
-
-
-
-

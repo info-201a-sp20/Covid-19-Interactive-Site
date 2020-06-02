@@ -49,7 +49,7 @@ This map displays the number of cases per a country. We included this chart beca
 
 ```{r echo=FALSE, warning=FALSE}
 source("scripts/world_cases.R")
-worldCases(data, sf::st_read("data/countries.geojson", quiet = TRUE))
+world_cases(data, sf::st_read("data/countries.geojson", quiet = TRUE))
 ```
 
 ## Pie Chart
