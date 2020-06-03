@@ -1,4 +1,4 @@
-h2 {
+h2, h1 {
   text-align: center;
   margin-bottom: 25px;
 }
@@ -11,4 +11,15 @@ h2 {
 img {
   height: 60%;
   width: 90%;
+  margin: 15px;
+}
+
+h1 {
+  text-decoration: underline solid black;
+}
+
+a:hover {
+  background-color: #483D8B;
+  color: #00BFFF;
+  font-size: 24px;
 }

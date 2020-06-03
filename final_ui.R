@@ -16,7 +16,6 @@ final_ui <- fluidPage(
     h1("COVID-19 vs Pandemics")
   ),
   # Main Panel
-  mainPanel(
     tabsetPanel(
       # Tab Panel for all summary information
       tabPanel(
@@ -145,4 +144,3 @@ final_ui <- fluidPage(
       )
     )
   )
-)
