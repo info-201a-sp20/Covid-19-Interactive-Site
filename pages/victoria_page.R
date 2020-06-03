@@ -2,9 +2,9 @@ library(shiny)
 library(dplyr)
 library(plotly)
 
-Covid <- read.csv("../Data/Countries_with_covid19.csv", stringsAsFactors = FALSE)
-Ebola <- read.csv("../Data/ebola_2014_2016_clean.csv", stringsAsFactors = FALSE)
-Sars <- read.csv("../Data/sars_2003_complete_dataset_clean.csv", stringsAsFactors = FALSE)
+Covid <- read.csv("Data/Countries_with_covid19.csv", stringsAsFactors = FALSE)
+Ebola <- read.csv("Data/ebola_2014_2016_clean.csv", stringsAsFactors = FALSE)
+Sars <- read.csv("Data/sars_2003_complete_dataset_clean.csv", stringsAsFactors = FALSE)
 
 Covid <- mutate(Covid, month = factor(format(as.Date(Date, format = "%Y-%m-%d"), "%b"), levels = month.abb)) %>%
   group_by(month) %>%

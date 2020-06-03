@@ -7,8 +7,8 @@ library("tidyverse")
 
 source("pages/isaac_page.R")
 source("pages/jon_page.R")
-#source("pages/fames_page.R")
-#source("pages/victoria_page.R")
+source("pages/fames_page.R")
+source("pages/victoria_page.R")
 
 final_ui <- fluidPage(
   titlePanel(
@@ -98,6 +98,10 @@ final_ui <- fluidPage(
       tabPanel(
         "Infection Map",
         fame_page
+      ),
+      tabPanel(
+        "Infection Comparison",
+        infection_page
       )
     )
   )
