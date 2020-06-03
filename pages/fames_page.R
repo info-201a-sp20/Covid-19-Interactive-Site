@@ -42,7 +42,7 @@ ui2 <- navbarPage(
 # Handling Server -----------------------------------------------------------
 
 # preprocessing
-source("fame_preprocess.R")
+source("pages/fame_preprocess.R")
 
 #covid_data
 server2 <- function(input, output) {

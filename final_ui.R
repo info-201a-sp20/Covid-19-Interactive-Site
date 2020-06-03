@@ -19,7 +19,7 @@ final_ui <- fluidPage(
     tabsetPanel(
       # Tab Panel for all summary information
       tabPanel(
-        "Summary Information",
+        "Overview",
         navbarPage(
           title = "",
           tabPanel(
@@ -102,6 +102,45 @@ final_ui <- fluidPage(
       tabPanel(
         "Infection Comparison",
         infection_page
+      ),
+      tabPanel(
+        "Summary",
+        tags$h3("Takeaways"),
+        tags$p("One main takeaway from this project was that COVID-19 spreads
+        much faster than both Ebola and SARS. Another interesting aspect is
+        the geographical spread of these 3 diseases. COVID-19 is a global
+        pandemic that has spread to every continent. Ebola was mainly present
+        in Africa while SARS was prevalent in Asia. By visualizing the spread
+        of these respective diseases in regards to time and geographical
+        location, we can conclude that COVID-19 spreads significantly faster
+        than the other 2 viruses."),
+        tags$p("Another takeaway is the drastic difference in the number of
+        deaths, recoveries, and cases among the 3 cases. Within the same
+        5-month span, COVID-19 resulted in over 300,000 cases which resulted
+        in easily 50-100 times more cases than from both SARS and Ebola.
+        Similarly, this large gap in cases can be said about the death counts
+        of the viruses. Unfortunately, our dataset for Ebola did not contain
+        information about recovered cases. But from the 2 points mentioned
+        above, it is fair to say that these trends are likely to continue for
+        recovered cases as well."),
+        tags$p("The last takeaway was the proportion of confirmed cases in
+        contrast to that of recovered cases and total deaths. For most
+        countries in the world, we see that confirmed cases are highest,
+        while recovered cases make up usually 40% of the confirmed cases, and
+        cases from death end up being around 5% of the confirmed cases.
+        However, countries like the Dominican Republic and the United States
+        had a 12% recovery rate that is considered absurdly low that calls
+        into question these countries’ preparedness for outbreaks like this.
+        Similarly, countries like the United Kingdom had arbitrarily high death
+        rates of 15% of total cases which demonstrate their lack of personnel
+        in the health department and a higher proportion of older citizens. In
+        contrast, countries like Cambodia have had 100% recovery rates with 0
+        deaths. It’s reasonable to assume that the difference in the number of
+        cases can be explained by the government’s implementation of effective
+        strategies for tackling the pandemic."),
+        tags$p("Regardless of where you live, everyone has a role to play in
+        these trying times. "),
+        img("", src = "https://www.health.qld.gov.au/__data/assets/image/0033/947454/varieties/800-lg.jpg")
       )
     )
   )

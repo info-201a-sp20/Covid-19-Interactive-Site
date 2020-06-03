@@ -1,6 +1,6 @@
 
 ## COVID 
-covid <- read.csv("../Data/Countries_with_covid19.csv", stringsAsFactors = FALSE)
+covid <- read.csv("Data/Countries_with_covid19.csv", stringsAsFactors = FALSE)
 covid[covid$Country ==
              "Congo (Brazzaville)", "Country"] <-
   "Republic of Congo"
@@ -38,7 +38,7 @@ covid <- rename(covid, confirmed = Confirmed, deaths = Deaths, recovered = Recov
 covid$Date <- as.Date(covid$Date, format = "%Y-%m-%d")
 
 ## EBOLA 
-ebola <- read.csv("../Data/ebola_2014_2016_clean.csv", stringsAsFactors = FALSE)
+ebola <- read.csv("Data/ebola_2014_2016_clean.csv", stringsAsFactors = FALSE)
 ebola <- rename(ebola, confirmed = No..of.confirmed.cases, 
                 deaths = No..of.confirmed.deaths)
 
@@ -47,7 +47,7 @@ ebola$Date <- as.Date(ebola$Date, format = "%Y-%m-%d")
 
 
 ## SARS 
-sars <- read.csv("../Data/sars_2003_complete_dataset_clean.csv", stringsAsFactors = FALSE)
+sars <- read.csv("Data/sars_2003_complete_dataset_clean.csv", stringsAsFactors = FALSE)
 
 
 sars[sars$Country ==

@@ -14,7 +14,7 @@ ui <- fluidPage(
     tabsetPanel(
       # Tab Panel for all summary information
       tabPanel(
-        "Summary Information",
+        "Overview",
         navbarPage(
           title = "",
           tabPanel(
