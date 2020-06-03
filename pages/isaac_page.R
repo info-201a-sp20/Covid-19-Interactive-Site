@@ -43,6 +43,7 @@ country_recoveries <- function(a) {
     pull(`Recovered Cases`)
 }
 page_one_sidepanel <- sidebarPanel(
+  class = "sidebar",
   h2("Country Selector"),
   fluidPage(
     selectInput(

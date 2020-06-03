@@ -11,6 +11,7 @@ source("pages/fames_page.R")
 source("pages/victoria_page.R")
 
 final_ui <- fluidPage(
+  includeCSS("style.css"),
   titlePanel(
     h1("COVID-19 vs Pandemics")
   ),

@@ -7,6 +7,7 @@ library(leaflet)
 
 # Handling UI -----------------------------------------------------------
 page_one_sidepanel <- sidebarPanel(
+  class = "sidebar",
   h2("Disease Map"),
   selectInput(
     inputId = "diseaseName",

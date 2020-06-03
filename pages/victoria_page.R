@@ -21,10 +21,11 @@ Sars <- mutate(Sars, month = factor(format(as.Date(Date, format = "%Y-%m-%d"), "
 
 # UI
 infection_page_side <- sidebarPanel(
+  class = "sidebar",
   fluidPage(
     selectInput(
       inputId = "type",
-      label = "Disease Information:",
+      label = h3("Disease Information:"),
       choices = list("Recovered", "Cases", "Deaths")
     ),
     radioButtons(
@@ -67,7 +68,10 @@ server <- function(input, output) {
        title = input$disease,
        xaxis = list(title = "Month"),
        yaxis = list(title = input$type)
-    )
+    ) %>%
+      add_trace(
+        hovertemplate = paste0(input$type, ":", "%{y}", "<extra></extra>")
+      )
     return(plot)
   })
 }
