@@ -1,7 +1,7 @@
 library(shiny)
 library(dplyr)
 library(leaflet)
-setwd("/Users/famebenjasiriwan/Desktop/Fame/UDUB/info201/final-project-jzli23/pages")
+# setwd("/Users/famebenjasiriwan/Desktop/Fame/UDUB/info201/final-project-jzli23/pages")
 
 
 

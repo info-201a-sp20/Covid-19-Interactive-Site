@@ -82,3 +82,4 @@ sars <- rename(sars, confirmed = Cumulative.number.of.case.s.,
                deaths = Number.of.deaths, recovered = Number.recovered)
 
 sars$Date <- as.Date(sars$Date, format = "%Y-%m-%d")
+

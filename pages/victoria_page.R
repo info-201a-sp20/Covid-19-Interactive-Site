@@ -19,33 +19,33 @@ Sars <- mutate(Sars, month = factor(format(as.Date(Date, format = "%Y-%m-%d"), "
   group_by(month) %>%
   summarise(Cases = sum(Cumulative.number.of.case.s.), Deaths = sum(Number.of.deaths), Recovered = sum(Number.recovered))
 
-# data <- full_join(covid, ebola, by = "month") %>%
-#   full_join(., sars, by = "month")
-# data[is.na(data)] <- 0
-
 # UI
 infection_page_side <- sidebarPanel(
-  h2("Infection Comparison"),
-  selectInput(
-    inputId = "type",
-    label = "Disease Information",
-    choices = list("Recovered", "Cases", "Deaths")
-  ),
-  radioButtons(
-    inputId = "disease",
-    label = h3("Disease:"),
-    choices = list("Covid", "Sars", "Ebola")
+  fluidPage(
+    selectInput(
+      inputId = "type",
+      label = "Disease Information:",
+      choices = list("Recovered", "Cases", "Deaths")
+    ),
+    radioButtons(
+      inputId = "disease",
+      label = h3("Disease:"),
+      choices = list("Covid", "Sars", "Ebola")
+    )
   )
 )
 
 infection_main <- mainPanel(
-  plotlyOutput(
-    outputId = "infection"
+  h2("Infection Comparison"),
+  fluidPage(
+    plotlyOutput(
+      outputId = "infection"
+    )
   )
 )
 
 infection_page <- tabPanel(
-  "Infection Comparison:",
+  "Infection Comparison",
   sidebarLayout(
     infection_page_side,
     infection_main
