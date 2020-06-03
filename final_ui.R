@@ -1,9 +1,16 @@
+library("shiny")
+library("plotly")
+library("lintr")
+library("dplyr")
+library("ggplot2")
+library("tidyverse")
+
 source("pages/isaac_page.R")
 source("pages/jon_page.R")
 source("pages/fames_page.R")
-source("pages/victoria_page.R")
+#source("pages/victoria_page.R")
 
-ui <- fluidPage(
+final_ui <- fluidPage(
   titlePanel(
     h1("COVID-19 vs Pandemics")
   ),
@@ -61,7 +68,7 @@ ui <- fluidPage(
           ),
           tabPanel(
             "Contributions",
-            tags$p("Issac Lai"),
+            tags$p("Isaac Lai"),
             tags$p("Fame Benjasiriwan"),
             tags$p("Jonathan Li"),
             tags$p("Victoria Jones"),
@@ -83,6 +90,14 @@ ui <- fluidPage(
             )),
           )
         )
+      ),
+      tabPanel(
+        "COVID Rates by Country",
+        isaac_page
+      ),
+      tabPanel(
+        "Infection Map",
+        fame_page
       )
     )
   )
