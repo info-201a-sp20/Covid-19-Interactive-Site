@@ -10,7 +10,7 @@ library("tidyverse")
 
 
 data <-
-  read.csv(file = "data/Countries_with_covid19.csv",
+  read.csv(file = "Data/Countries_with_covid19.csv",
            stringsAsFactors = FALSE)
 data_by_country <- data %>%
   group_by(Country) %>%
