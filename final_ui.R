@@ -7,7 +7,7 @@ library("tidyverse")
 
 source("pages/isaac_page.R")
 source("pages/jon_page.R")
-source("pages/fames_page.R")
+#source("pages/fames_page.R")
 #source("pages/victoria_page.R")
 
 final_ui <- fluidPage(
