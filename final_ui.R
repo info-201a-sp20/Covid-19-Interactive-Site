@@ -1,9 +1,7 @@
-library(dplyr)
-library(tidyr)
-library(leaflet)
-library(ggplot2)
-library(shiny)
-library(plotly)
+source("pages/isaac_page.R")
+source("pages/jon_page.R")
+source("pages/fames_page.R")
+source("pages/victoria_page.R")
 
 ui <- fluidPage(
   titlePanel(
@@ -24,9 +22,9 @@ ui <- fluidPage(
               "Our group decided to focus our project on illustrating
                the deadliness of", strong("COVID-19"), " through comparisons
                with other recent pandemics including", em("Ebola"), "and",
-               em("SARS"), "in hopes that these comparisons in the forms of
+              em("SARS"), "in hopes that these comparisons in the forms of
                interactive charts and maps will shine light on the",
-               strong("deadliness"), "of COVID-19 and incentivize people to
+              strong("deadliness"), "of COVID-19 and incentivize people to
                follow the guidelines listed by our local governments. Our
                research will provide a surface level insight of relevant
                information regarding the differnces in these diseases'
@@ -72,16 +70,16 @@ ui <- fluidPage(
           tabPanel(
             "Sources",
             tags$p(a("COVID-19 Dataset",
-              href = "https://github.com/datasets/covid-19/blob/master/data/worldwide-aggregated.csv"
+                     href = "https://github.com/datasets/covid-19/blob/master/data/worldwide-aggregated.csv"
             )),
             tags$p(a("Influenza Dataset",
-              href = "http://www.ufiddynamics.org/data"
+                     href = "http://www.ufiddynamics.org/data"
             )),
             tags$p(a("Ebola Dataset",
-              href = "https://www.kaggle.com/imdevskp/ebola-outbreak-20142016-complete-dataset"
+                     href = "https://www.kaggle.com/imdevskp/ebola-outbreak-20142016-complete-dataset"
             )),
             tags$p(a("SARS Dataset",
-              href = "https://www.kaggle.com/imdevskp/sars-2003-outbreak-analysis"
+                     href = "https://www.kaggle.com/imdevskp/sars-2003-outbreak-analysis"
             )),
           )
         )
@@ -89,16 +87,3 @@ ui <- fluidPage(
     )
   )
 )
-
-# Define a `server` function (with appropriate arguments)
-# This function should perform the following:
-server <- function(input, output) {
-
-
-
-  # Assign a reactive `renderText()` function to the output's `cost` value
-  # The reactive expression should return the input `price` times the `quantity`
-  # So it looks nice, paste a "$" in front of it!
-  
-}
-

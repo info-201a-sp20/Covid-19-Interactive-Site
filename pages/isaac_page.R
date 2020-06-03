@@ -96,9 +96,3 @@ server2 <- function(input, output) {
     return(plot)
   })
 }
-
-
-# App test
-
-
-shinyApp(ui = ui2, server = server2)
