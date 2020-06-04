@@ -10,7 +10,7 @@ library("tidyverse")
 
 
 data <-
-  read.csv(file = "Data/Countries_with_covid19.csv",
+  read.csv("Data/Countries_with_covid19.csv",
            stringsAsFactors = FALSE)
 data_by_country <- data %>%
   group_by(Country) %>%
@@ -58,9 +58,12 @@ page_one_sidepanel <- sidebarPanel(
 page_one_mainpanel <- mainPanel(
   h2("Country Statistics"),
   fluidPage(
-    plotOutput(
+    plotlyOutput(
       outputId = "chart"
     )
+  ),
+  p(
+    "This chart serves to compare the number of confirmed cases, recorded deaths, and recorded recoveries from the Corona virus. "
   )
 )
 isaac_page <- tabPanel(
@@ -82,7 +85,7 @@ namex <- "Types of Recorded Cases"
 namey <- 
 
 server2 <- function(input, output) {
-  output$chart <- renderPlot({
+  output$chart <- renderPlotly({
     data_new <- country_data(input$countryName) %>%
       pivot_longer(
         names_to = "Types of Recorded Cases",
