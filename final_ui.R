@@ -107,15 +107,17 @@ final_ui <- fluidPage(
         "Summary",
         tags$h3("Takeaways"),
         tags$p("One main takeaway from this project was that COVID-19 spreads
-        much faster than both Ebola and SARS. Another interesting aspect is
-        the geographical spread of these 3 diseases. COVID-19 is a global
-        pandemic that has spread to every continent. Ebola was mainly present
-        in Africa while SARS was prevalent in Asia. By visualizing the spread
-        of these respective diseases in regards to time and geographical
+        much faster than both Ebola and SARS. The infection comparison page
+        does a great job of displaying the differences. Another interesting
+        aspect is the geographical spread of these 3 diseases. COVID-19 is a
+        global pandemic that has spread to every continent. Ebola was mainly
+        present in Africa while SARS was prevalent in Asia. By visualizing the
+        spread of these respective diseases in regards to time and geographical
         location, we can conclude that COVID-19 spreads significantly faster
         than the other 2 viruses."),
         tags$p("Another takeaway is the drastic difference in the number of
-        deaths, recoveries, and cases among the 3 cases. Within the same
+        deaths, recoveries, and cases among the 3 cases. The infection map page
+        does a great job of displaying these results. Within the same
         5-month span, COVID-19 resulted in over 300,000 cases which resulted
         in easily 50-100 times more cases than from both SARS and Ebola.
         Similarly, this large gap in cases can be said about the death counts
@@ -124,7 +126,8 @@ final_ui <- fluidPage(
         above, it is fair to say that these trends are likely to continue for
         recovered cases as well."),
         tags$p("The last takeaway was the proportion of confirmed cases in
-        contrast to that of recovered cases and total deaths. For most
+        contrast to that of recovered cases and total deaths. The “COVID Rates
+        by Country” page does a great job of displaying these results. For most
         countries in the world, we see that confirmed cases are highest,
         while recovered cases make up usually 40% of the confirmed cases, and
         cases from death end up being around 5% of the confirmed cases.
