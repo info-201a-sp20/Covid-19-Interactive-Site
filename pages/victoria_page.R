@@ -41,7 +41,10 @@ infection_main <- mainPanel(
   fluidPage(
     plotlyOutput(
       outputId = "infection"
-    )
+    ),
+    tags$p("This graphic helps answer the question of how each virus impacted the world for
+           each month of its pandemic. Thus allowing us to compare how dangerous and infectious
+           each virus was to other viruses.")
   )
 )
 
