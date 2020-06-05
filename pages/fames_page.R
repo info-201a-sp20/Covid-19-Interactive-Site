@@ -82,7 +82,7 @@ server2 <- function(input, output) {
       summarise(total_cases = max(confirmed, na.rm = TRUE))
     
     
-    geo_data <- sf::st_read("../data/countries.geojson", quiet = TRUE, stringsAsFactors = FALSE)
+    geo_data <- sf::st_read("Data/countries.geojson", quiet = TRUE, stringsAsFactors = FALSE)
     
     joined <- left_join(geo_data, data, by = c("ADMIN" = "Country"))
     joined$total_cases[is.na(joined$total_cases)] <- 0

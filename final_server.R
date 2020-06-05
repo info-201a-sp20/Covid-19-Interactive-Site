@@ -56,7 +56,7 @@ final_server <- function(input, output) {
       summarise(total_cases = max(confirmed, na.rm = TRUE))
     
     
-    geo_data <- sf::st_read("data/countries.geojson", quiet = TRUE, stringsAsFactors = FALSE)
+    geo_data <- sf::st_read("Data/countries.geojson", quiet = TRUE, stringsAsFactors = FALSE)
     
     joined <- left_join(geo_data, data, by = c("ADMIN" = "Country"))
     joined$total_cases[is.na(joined$total_cases)] <- 0
@@ -90,5 +90,24 @@ final_server <- function(input, output) {
       addControl("Global Confirmed Cases", position = "bottomleft")
     
     return(m)
+  })  
+  
+  output$infection <- renderPlotly({
+    final = eval(parse(text = input$disease))
+    plot <- plot_ly(
+      data = final,
+      x = ~month,
+      y = final[[input$type]]
+    ) %>%
+      layout(
+        title = input$disease,
+        xaxis = list(title = "Month"),
+        yaxis = list(title = input$type)
+      ) %>%
+      add_trace(
+        hovertemplate = paste0(input$type, ":", "%{y}", "<extra></extra>")
+      )
+    return(plot)
   })
+  
 }

@@ -84,7 +84,7 @@ ui2 <- navbarPage(
 namex <- "Types of Recorded Cases"
 namey <- 
 
-server2 <- function(input, output) {
+server3 <- function(input, output) {
   output$chart <- renderPlotly({
     data_new <- country_data(input$countryName) %>%
       pivot_longer(
@@ -102,4 +102,4 @@ server2 <- function(input, output) {
   })
 }
 
-shinyApp(ui2, server2)
+shinyApp(ui2, server3)
