@@ -2,6 +2,8 @@ library(shiny)
 library(dplyr)
 library(leaflet)
 # setwd("/Users/famebenjasiriwan/Desktop/Fame/UDUB/info201/final-project-jzli23/pages")
+library(shinycssloaders)
+options(spinner.color="#0275D8", spinner.color.background="#ffffff", spinner.size=2)
 
 
 
@@ -21,10 +23,13 @@ page_one_sidepanel <- sidebarPanel(
 
 page_one_mainpanel <- mainPanel(
   h2("Aggregate Infection Statistics by Country"), 
-  fluidPage(
+  fluidPage(withSpinner(
     leafletOutput(
       outputId = "the_map"
-    )
+    ), type=2)
+  ),
+  p(
+    "This map helps us answer the question: When and where do infectious diseases take place?"
   )
 )
 
